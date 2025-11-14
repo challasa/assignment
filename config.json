@@ -1,0 +1,49 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "standard": {
+            "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        },
+        "error_only": {
+            "format": "%(asctime)s - %(name)s - %(module)s - %(lineno)d - %(levelname)s - %(message)s"
+        }
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "standard",
+            "level": "INFO",
+            "stream": "ext://sys.stdout"
+        },
+        "file_handler": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "formatter": "error_only",
+            "level": "ERROR",
+            "filename": "pipeline_errors.log",
+            "maxBytes": 1000000,
+            "backupCount": 5
+        }
+    },
+    "loggers": {
+        "data_validation": {
+            "handlers": ["console", "file_handler"],
+            "level": "INFO",
+            "propagate": false
+        },
+        "data_processing": {
+            "handlers": ["console", "file_handler"],
+            "level": "INFO",
+            "propagate": false
+        },
+         "generic": {
+            "handlers": ["console", "file_handler"],
+            "level": "INFO",
+            "propagate": false
+        }
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "WARNING"
+    }
+}
