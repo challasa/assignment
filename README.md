@@ -5,7 +5,30 @@ This repo captures code required to validate and preprocess Stroke Prediction da
 
 #### Instructions to run data validation and processing pipeline
 
+1. Clone the repository
+   ```
+   git clone https://github.com/challasa/assignment.git
+   ```
+2. Change into assignment folder, create a venv and activate the venv
+   ```
+   cd assignment/
+   uv venv
+   source .venv/bin/activate
+   ```
+3. Install the dependencies by installing the module
+   ```
+   uv pip install -e .
 
+   // one can also run `uv pip install -r requirements.txt` or `uv add -r requirements.txt`
+   ```
+4. Run the python script
+   ```
+   uv run src/main.py
+
+   or
+
+   python src/main.py
+   ```
 
 #### Dataset
 
@@ -15,7 +38,7 @@ The data file, available as csv file can be downloaded as zip file from Kaggle o
 
 The data was explored in a Jupyter notebook and using ydata profiler module a report was generated to comprehend univariate and bivariate distributions and relationships. Since the task is to build a binary classifier, it was decided to implement the following as part of feature engineering steps. These steps can be improved and other approaches can be tried out and these will not necessarily give the best performing model.
 
-    - Imptue age and bmi and convert age and bmi into bins
+    - Impute age and bmi and convert age and bmi into bins
     - Perform ordinal encoding on "ever_married", "Residence_type", "work_type", "gender", "smoking_status" variables
     - Impute and scale avg_glucose_level  
 
@@ -32,4 +55,3 @@ The data was explored in a Jupyter notebook and using ydata profiler module a re
 
 - ColumnTransformer from scikit-learn has been used to put together set of pipelines that perform necessary transformation on various columns. `StrokeDataProcessor` class is implemented within `src/data_processor.py`
 - Logging has been implemented within `src/logging_config.py` with `config.json` capturing the logger objects, formatters and handlers.
-

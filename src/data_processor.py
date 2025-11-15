@@ -124,6 +124,9 @@ class StrokeDataProcessor:
             ],
             remainder='passthrough' 
         )
+        proc_logger.info(f"Creating binned features for 'age' and 'bmi'...")
+        proc_logger.info(f"Encoding following Ordinal features: {', '.join(self._ordinal_cols)}...")
+        proc_logger.info(f"Scaling {', '.join(self._numerical_cols)}...")
         return preprocessor
     
     def fit_transform_data(self, 
@@ -133,7 +136,7 @@ class StrokeDataProcessor:
         Splits data, fits the transformation pipeline on the training set,
         and transforms both the training and test sets.
         
-        Returns: (X_train_processed, X_test_processed, y_train, y_test)
+        Returns: (train_df, test_df)
         """
         if self.transformer is None:
             self.transformer = self._create_pipeline()

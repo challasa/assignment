@@ -18,6 +18,7 @@ def main():
     input_df = pandas.read_csv(FILES_PATH / INPUT_FILE_NAME)
     logger.info("-" * 20)
     logger.info(f"Input file read: {input_df.shape}")
+    logger.info(f"Here are the columns: {', '.join(input_df.columns)}")
     logger.info("-" * 20)
     logger.info("Validating input data...")
     logger.info("-" * 20)
@@ -36,9 +37,9 @@ def main():
     test.to_csv(FILES_PATH / f"{OUTPUT_FILE_PREFIX}_test.csv")
     logger.info("Data processing end...")
     logger.info("-" * 20)
-    logger.info("Validating processed train data")
+    logger.info("Validating processed train data...")
     validate_dataset(train, schema=ProcessedDataSchema)
-    logger.info("Validating processed test data")
+    logger.info("Validating processed test data...")
     validate_dataset(test, schema=ProcessedDataSchema)
     
 
