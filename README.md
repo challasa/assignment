@@ -1,6 +1,6 @@
 ### Stroke Prediction dataset processing pipeline
 
-This repo captures code required to validate and preprocess Stroke Prediction dataset available on Kaggle.
+This repo captures code required to validate and preprocess Stroke Prediction dataset available on Kaggle - [here](https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset)
 
 
 #### **Instructions to run data validation and processing pipeline**

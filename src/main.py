@@ -4,7 +4,7 @@ import pandera.pandas as pa
 from pathlib import Path
 
 from data_processor import StrokeDataProcessor
-from data_validation import InputDataSchema, validate_dataset, ProcessedDataSchema
+from data_validation import InputDataSchema, validate_dataset, MLReadySchema
 from logging_config import setup_logging
 
 logger = setup_logging()
@@ -38,9 +38,9 @@ def main():
     logger.info("Data processing end...")
     logger.info("-" * 20)
     logger.info("Validating processed train data...")
-    validate_dataset(train, schema=ProcessedDataSchema)
+    validate_dataset(train, schema=MLReadySchema)
     logger.info("Validating processed test data...")
-    validate_dataset(test, schema=ProcessedDataSchema)
+    validate_dataset(test, schema=MLReadySchema)
     
 
 if __name__ == '__main__':

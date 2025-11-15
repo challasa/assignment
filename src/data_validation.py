@@ -30,7 +30,7 @@ class InputDataSchema(pa.DataFrameModel):
     ])
 
 
-class ProcessedDataSchema(pa.DataFrameModel):
+class MLReadySchema(pa.DataFrameModel):
     id: Series[float] = pa.Field(unique=True, ge=0)
     stroke: Series[int] = pa.Field(isin=[0, 1], nullable=False)
     age_binned: Series[float] = pa.Field(nullable=False)
@@ -46,7 +46,7 @@ class ProcessedDataSchema(pa.DataFrameModel):
 
 
 def validate_dataset(df: pandas.DataFrame,
-                     schema: Union[InputDataSchema, ProcessedDataSchema]) -> pandas.DataFrame:
+                     schema: Union[InputDataSchema, MLReadySchema]) -> pandas.DataFrame:
     """Validates a DataFrame and logs errors to a file."""
     try:
         # lazy=True helps collect all errors instead of stopping on the first one

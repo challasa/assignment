@@ -5,6 +5,7 @@ description = "Data processing pipeline"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "click>=8.3.0",
     "pandas>=2.3.3",
     "pandera>=0.26.1",
     "pytest>=9.0.1",
@@ -17,3 +18,8 @@ classifiers = ["Private :: Do Not Upload"]
 dev = [
     "pytest>=9.0.1",
 ]
+
+
+[project.scripts]
+# Defines the command name that users type in the console
+stroke_pipeline = "cli:stroke_pipeline"
