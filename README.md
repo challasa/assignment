@@ -42,16 +42,24 @@ The data was explored in a Jupyter notebook and using ydata profiler module a re
     - Perform ordinal encoding on "ever_married", "Residence_type", "work_type", "gender", "smoking_status" variables
     - Impute and scale avg_glucose_level  
 
-#### Implementation
 
-**Data Validation:**
+#### **Data Validation:**
 
 - In terms of data validation, "pandera" python module is being used to ensure all the instances/rows satisy the checks created. 
 - `InputDataSchema` and `ProcessedDataSchema` classes implemented in `src/data_validation.py` can help validate input and processed data. 
 - 'Great Expectations' python module is another recommended alternative for carrying out data validation as it has broader capabilities in terms of being able to consume data from several sources, build a comprehensive suite of tests, and also raise triggers/email notifications. If the end environment is in AWS, one can use AWS SNS to notify any data validation errors through email/texts.
 
 
-**Data Processing:**
+#### **Data Processing:**
 
 - ColumnTransformer from scikit-learn has been used to put together set of pipelines that perform necessary transformation on various columns. `StrokeDataProcessor` class is implemented within `src/data_processor.py`
 - Logging has been implemented within `src/logging_config.py` with `config.json` capturing the logger objects, formatters and handlers.
+
+
+ **Note: What additional things need to be implemented for Prod?**
+ - A CLI interface to provide commands and sub-commsnds using Click instead of main.py
+ - Test cases for data_processor.py, logger_config.py
+ - setup.py if `uv build` does not work
+ - pre-commit, linter checks
+ - GitHub actions for CI/CD
+ - A way to communicate data validation or processing failures
