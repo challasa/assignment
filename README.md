@@ -21,13 +21,13 @@ This repo captures code required to validate and preprocess Stroke Prediction da
 
    # one can also run `uv pip install -r requirements.txt` or `uv add -r requirements.txt`
    ```
-4. Run the python script
+4. Run the stroke_pipeline cli utility
    ```
-   uv run src/main.py
+   stroke_pipeline --help
 
-   # or
+   stroke_pipeline run --help
 
-   # python src/main.py
+   stroke_pipeline run --input_file data/healthcare-dataset-stroke-data.csv --output_dir data
    ```
 
 #### Dataset
@@ -57,7 +57,6 @@ The data was explored in a Jupyter notebook and using ydata profiler module a re
 
 
  **Note: What additional things need to be implemented for Prod?**
- - A CLI interface to provide commands and sub-commsnds using Click instead of main.py
  - Test cases for data_processor.py, logger_config.py
  - setup.py if `uv build` does not work
  - pre-commit, linter checks
