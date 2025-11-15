@@ -3,7 +3,7 @@
 This repo captures code required to validate and preprocess Stroke Prediction dataset available on Kaggle.
 
 
-#### Instructions to run data validation and processing pipeline
+#### **Instructions to run data validation and processing pipeline**
 
 1. Clone the repository
    ```
@@ -19,15 +19,15 @@ This repo captures code required to validate and preprocess Stroke Prediction da
    ```
    uv pip install -e .
 
-   // one can also run `uv pip install -r requirements.txt` or `uv add -r requirements.txt`
+   # one can also run `uv pip install -r requirements.txt` or `uv add -r requirements.txt`
    ```
 4. Run the python script
    ```
    uv run src/main.py
 
-   or
+   # or
 
-   python src/main.py
+   # python src/main.py
    ```
 
 #### Dataset
@@ -36,7 +36,7 @@ The data file, available as csv file can be downloaded as zip file from Kaggle o
 
 #### Data exploration
 
-The data was explored in a Jupyter notebook and using ydata profiler module a report was generated to comprehend univariate and bivariate distributions and relationships. Since the task is to build a binary classifier, it was decided to implement the following as part of feature engineering steps. These steps can be improved and other approaches can be tried out and these will not necessarily give the best performing model.
+The data was explored in a Jupyter notebook and using ydata profiler module a report was generated to comprehend univariate and bivariate distributions and relationships. Prpfile report is available within notebooks folder. Since the task is to build a binary classifier, it was decided to implement the following as part of feature engineering steps. These steps can be improved and other approaches can be tried out and these will not necessarily give the best performing model.
 
     - Impute age and bmi and convert age and bmi into bins
     - Perform ordinal encoding on "ever_married", "Residence_type", "work_type", "gender", "smoking_status" variables
